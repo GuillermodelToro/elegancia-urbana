@@ -1,0 +1,128 @@
+{% extends 'landing/base.html' %}
+
+{% block contenido %}
+
+<!-- HERO -->
+<section id="inicio" class="hero">
+    <div class="hero-contenido">
+        <p class="hero-etiqueta">Moda de lujo · Lima · Bogotá · Ciudad de México</p>
+        <h1>El lujo que define tu estilo</h1>
+        <p class="hero-texto">Asesoría personalizada y experiencias premium con las casas de moda más prestigiosas del
+            mundo.</p>
+        <a href="#contacto" class="btn">Agenda tu asesoría</a>
+    </div>
+</section>
+
+<!-- NOSOTROS -->
+<section id="nosotros" class="seccion">
+    <div class="contenedor nosotros">
+        <div class="nosotros-texto">
+            <p class="etiqueta">Quiénes somos</p>
+            <h2 class="titulo-seccion">Elegancia Urbana</h2>
+            <p>Somos una startup de lujo especializada en ropa y accesorios de alta gama. Acompañamos a cada cliente en
+                la búsqueda de piezas exclusivas, con un servicio cercano, discreto y totalmente personalizado.</p>
+            <p>Nuestra misión es convertir cada compra en una experiencia memorable, uniendo la tradición de las grandes
+                casas de moda con la atención de un asesor dedicado.</p>
+        </div>
+        <div class="nosotros-cifras">
+            <div class="cifra">
+                <span class="cifra-numero">3</span>
+                <span class="cifra-texto">Ciudades en Latinoamérica</span>
+            </div>
+            <div class="cifra">
+                <span class="cifra-numero">3</span>
+                <span class="cifra-texto">Casas de moda de lujo</span>
+            </div>
+            <div class="cifra">
+                <span class="cifra-numero">100%</span>
+                <span class="cifra-texto">Atención personalizada</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- MARCAS -->
+<section id="marcas" class="seccion seccion-oscura">
+    <div class="contenedor">
+        <p class="etiqueta">Catálogo</p>
+        <h2 class="titulo-seccion">Nuestras marcas</h2>
+        <div class="grid grid-3">
+            {% for marca in marcas %}
+            <article class="tarjeta tarjeta-marca">
+                <h3>{{ marca.nombre }}</h3>
+                <p>{{ marca.descripcion }}</p>
+            </article>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- SERVICIOS -->
+<section id="servicios" class="seccion">
+    <div class="contenedor">
+        <p class="etiqueta">Experiencia premium</p>
+        <h2 class="titulo-seccion">Servicios exclusivos</h2>
+        <div class="grid grid-4">
+            {% for servicio in servicios %}
+            <article class="tarjeta tarjeta-servicio">
+                <span class="icono">{{ servicio.icono }}</span>
+                <h3>{{ servicio.titulo }}</h3>
+                <p>{{ servicio.descripcion }}</p>
+            </article>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- CIUDADES -->
+<section id="ciudades" class="seccion seccion-oscura">
+    <div class="contenedor">
+        <p class="etiqueta">Presencia</p>
+        <h2 class="titulo-seccion">Dónde estamos</h2>
+        <div class="grid grid-3">
+            {% for ciudad in ciudades %}
+            <article class="tarjeta tarjeta-ciudad">
+                <h3>{{ ciudad.nombre }}</h3>
+                <p class="ciudad-pais">{{ ciudad.pais }}</p>
+                <p>Showroom en {{ ciudad.zona }}</p>
+            </article>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto" class="seccion">
+    <div class="contenedor contacto">
+        <div class="contacto-info">
+            <p class="etiqueta">Contáctanos</p>
+            <h2 class="titulo-seccion">Agenda tu asesoría</h2>
+            <p>Déjanos tus datos y un asesor de Elegancia Urbana se pondrá en contacto contigo para diseñar una
+                experiencia a tu medida.</p>
+        </div>
+
+        <form method="post" class="formulario" novalidate>
+            {% csrf_token %}
+
+            {% if messages %}
+            {% for mensaje in messages %}
+            <div class="alerta">{{ mensaje }}</div>
+            {% endfor %}
+            {% endif %}
+
+            {% for campo in form %}
+            <div class="campo {% if campo.name == 'mensaje' %}campo-completo{% endif %}">
+                {{ campo.label_tag }}
+                {{ campo }}
+                {% if campo.errors %}
+                <small class="error">{{ campo.errors.0 }}</small>
+                {% endif %}
+            </div>
+            {% endfor %}
+
+            <button type="submit" class="btn btn-bloque">Enviar solicitud</button>
+        </form>
+    </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,570 @@
+/* =========================================
+   ELEGANCIA URBANA - Hoja de estilos
+   ========================================= */
+
+/* ---------- Variables ---------- */
+:root {
+    --negro: #0b0b0b;
+    --negro-2: #141414;
+    --negro-3: #1c1c1c;
+    --dorado: #c9a24a;
+    --dorado-claro: #e3c47a;
+    --blanco: #f5f1e8;
+    --gris: #a8a29a;
+    --borde: rgba(201, 162, 74, 0.25);
+    --fuente-titulo: 'Playfair Display', Georgia, serif;
+    --fuente-texto: 'Montserrat', Arial, sans-serif;
+    --transicion: 0.3s ease;
+}
+
+/* ---------- Reset y base ---------- */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+}
+
+body {
+    font-family: var(--fuente-texto);
+    font-weight: 300;
+    line-height: 1.7;
+    background: var(--negro);
+    color: var(--blanco);
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+h1,
+h2,
+h3 {
+    font-family: var(--fuente-titulo);
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.contenedor {
+    width: min(1200px, 90%);
+    margin: 0 auto;
+}
+
+/* ---------- Header y menú ---------- */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    background: rgba(11, 11, 11, 0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--borde);
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 72px;
+}
+
+.logo {
+    font-family: var(--fuente-titulo);
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+}
+
+.logo span {
+    color: var(--dorado);
+    font-style: italic;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.menu a {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: color var(--transicion);
+}
+
+.menu a:hover {
+    color: var(--dorado);
+}
+
+.menu .menu-cta {
+    border: 1px solid var(--dorado);
+    padding: 0.5rem 1.2rem;
+    color: var(--dorado);
+    transition: all var(--transicion);
+}
+
+.menu .menu-cta:hover {
+    background: var(--dorado);
+    color: var(--negro);
+}
+
+.menu-toggle {
+    display: none;
+}
+
+.menu-icono {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.menu-icono span {
+    width: 26px;
+    height: 2px;
+    background: var(--dorado);
+    transition: all var(--transicion);
+}
+
+/* ---------- Hero ---------- */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 120px 5% 80px;
+    background:
+        radial-gradient(circle at 50% 30%, rgba(201, 162, 74, 0.18), transparent 60%),
+        linear-gradient(180deg, #0b0b0b 0%, #151209 100%);
+}
+
+.hero-contenido {
+    max-width: 800px;
+}
+
+.hero-etiqueta,
+.etiqueta {
+    font-size: 0.75rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--dorado);
+    margin-bottom: 1rem;
+}
+
+.hero h1 {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    margin-bottom: 1.5rem;
+}
+
+.hero-texto {
+    font-size: 1.1rem;
+    color: var(--gris);
+    margin-bottom: 2.5rem;
+}
+
+/* ---------- Botones ---------- */
+.btn {
+    display: inline-block;
+    background: var(--dorado);
+    color: var(--negro);
+    border: 1px solid var(--dorado);
+    padding: 1rem 2.5rem;
+    font-family: var(--fuente-texto);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all var(--transicion);
+}
+
+.btn:hover {
+    background: transparent;
+    color: var(--dorado);
+}
+
+.btn-bloque {
+    width: 100%;
+}
+
+/* ---------- Secciones ---------- */
+.seccion {
+    padding: 100px 0;
+}
+
+.seccion-oscura {
+    background: var(--negro-2);
+}
+
+.titulo-seccion {
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 3rem;
+}
+
+.contenedor>.etiqueta,
+.contenedor>.titulo-seccion {
+    text-align: center;
+}
+
+/* ---------- Nosotros ---------- */
+.nosotros {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.nosotros-texto p {
+    color: var(--gris);
+    margin-bottom: 1rem;
+}
+
+.nosotros-texto .etiqueta {
+    color: var(--dorado);
+}
+
+.nosotros-texto .titulo-seccion {
+    margin-bottom: 1.5rem;
+}
+
+.nosotros-cifras {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.cifra {
+    background: var(--negro-2);
+    border-left: 2px solid var(--dorado);
+    padding: 1rem 1.5rem;
+}
+
+.cifra-numero {
+    display: block;
+    font-family: var(--fuente-titulo);
+    font-size: 2.5rem;
+    color: var(--dorado);
+}
+
+.cifra-texto {
+    font-size: 0.85rem;
+    color: var(--gris);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ---------- Grids y tarjetas ---------- */
+.grid {
+    display: grid;
+    gap: 2rem;
+}
+
+.grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.tarjeta {
+    background: var(--negro-3);
+    border: 1px solid var(--borde);
+    padding: 2.5rem 2rem;
+    transition: transform var(--transicion), border-color var(--transicion), box-shadow var(--transicion);
+}
+
+.tarjeta:hover {
+    transform: translateY(-6px);
+    border-color: var(--dorado);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+}
+
+.tarjeta h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.tarjeta p {
+    color: var(--gris);
+    font-size: 0.95rem;
+}
+
+/* Marcas */
+.tarjeta-marca {
+    text-align: center;
+}
+
+.tarjeta-marca h3 {
+    font-size: 1.9rem;
+    letter-spacing: 1px;
+    color: var(--dorado-claro);
+}
+
+.tarjeta-marca h3::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--dorado);
+    margin: 1rem auto 0;
+}
+
+/* Servicios */
+.tarjeta-servicio {
+    background: var(--negro-2);
+}
+
+.tarjeta-servicio .icono {
+    display: block;
+    font-size: 2rem;
+    color: var(--dorado);
+    margin-bottom: 1rem;
+}
+
+.tarjeta-servicio h3 {
+    font-size: 1.2rem;
+}
+
+/* Ciudades */
+.tarjeta-ciudad {
+    text-align: center;
+}
+
+.tarjeta .ciudad-pais {
+    color: var(--dorado);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 0.5rem;
+}
+
+/* ---------- Contacto y formulario ---------- */
+.contacto {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+.contacto-info p {
+    color: var(--gris);
+}
+
+.contacto-info .etiqueta {
+    color: var(--dorado);
+}
+
+.contacto-info .titulo-seccion {
+    margin-bottom: 1.5rem;
+}
+
+.formulario {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    background: var(--negro-2);
+    border: 1px solid var(--borde);
+    padding: 2.5rem;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.campo-completo,
+.alerta,
+.btn-bloque {
+    grid-column: 1 / -1;
+}
+
+.campo label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--dorado);
+}
+
+.campo input,
+.campo select,
+.campo textarea {
+    width: 100%;
+    background: var(--negro);
+    border: 1px solid #333;
+    color: var(--blanco);
+    padding: 0.9rem 1rem;
+    font-family: inherit;
+    font-size: 0.95rem;
+    transition: border-color var(--transicion);
+}
+
+.campo input:focus,
+.campo select:focus,
+.campo textarea:focus {
+    outline: none;
+    border-color: var(--dorado);
+}
+
+.campo textarea {
+    resize: vertical;
+}
+
+.campo select option {
+    background: var(--negro);
+}
+
+.error {
+    color: #e57373;
+    font-size: 0.8rem;
+}
+
+.alerta {
+    background: rgba(201, 162, 74, 0.12);
+    border: 1px solid var(--dorado);
+    color: var(--dorado-claro);
+    padding: 1rem;
+    text-align: center;
+}
+
+/* ---------- Footer ---------- */
+.footer {
+    background: #050505;
+    border-top: 1px solid var(--borde);
+    padding: 3rem 0;
+}
+
+.footer-contenido {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+}
+
+.footer p {
+    color: var(--gris);
+    font-size: 0.9rem;
+}
+
+.footer .logo {
+    font-size: 1.8rem;
+    color: var(--blanco);
+}
+
+.footer .footer-copy {
+    font-size: 0.8rem;
+    margin-top: 1rem;
+}
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+
+/* Tablets */
+@media (max-width: 992px) {
+    .grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .nosotros,
+    .contacto {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+}
+
+/* Celulares */
+@media (max-width: 768px) {
+    .menu-icono {
+        display: flex;
+    }
+
+    .menu {
+        position: absolute;
+        top: 72px;
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        gap: 0;
+        background: var(--negro);
+        border-bottom: 1px solid var(--borde);
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease;
+    }
+
+    .menu li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .menu a {
+        display: block;
+        padding: 1rem;
+    }
+
+    .menu .menu-cta {
+        border: none;
+    }
+
+    .menu-toggle:checked~.menu {
+        max-height: 400px;
+    }
+
+    .menu-toggle:checked+.menu-icono span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+    }
+
+    .menu-toggle:checked+.menu-icono span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle:checked+.menu-icono span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+    }
+
+    .grid-3 {
+        grid-template-columns: 1fr;
+    }
+
+    .seccion {
+        padding: 70px 0;
+    }
+
+    .formulario {
+        grid-template-columns: 1fr;
+        padding: 1.5rem;
+    }
+}
+
+/* Celulares pequeños */
+@media (max-width: 480px) {
+    .grid-4 {
+        grid-template-columns: 1fr;
+    }
+
+    .logo {
+        font-size: 1.25rem;
+    }
+
+    .hero-texto {
+        font-size: 1rem;
+    }
+
+    .btn {
+        padding: 0.9rem 1.8rem;
+    }
+}
